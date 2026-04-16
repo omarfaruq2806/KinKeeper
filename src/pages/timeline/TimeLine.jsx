@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { FriendsContext } from "../../context/FriendsProvider";
 import { SyncLoader } from "react-spinners";
+import { FaArrowDown } from "react-icons/fa";
 
 const TimeLine = () => {
   const { timeLine, loading } = useContext(FriendsContext);
@@ -15,6 +16,28 @@ const TimeLine = () => {
         </div>
       ) : (
         <div className="grid gap-4 mb-7 px-2 md:px-0">
+          <div className="dropdown">
+            <div tabIndex={0} role="button" className="btn m-1 w-50 flex justify-between">
+              <p>Filter TimeLine</p><FaArrowDown />
+            </div>
+            <ul
+              tabIndex="-1"
+              className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm"
+            >
+              <li>
+                <a>Filter by Call</a>
+              </li>
+              <li>
+                <a>Filter by Text</a>
+              </li>
+              <li>
+                <a>Filter by Video</a>
+              </li>
+              <li>
+                <a>All</a>
+              </li>
+            </ul>
+          </div>
           {timeLine.map((entry, ind) => {
             return loading ? (
               <div className="flex justify-center my-12">
