@@ -10,8 +10,7 @@ import { toast } from "react-toastify";
 const FriendDetails = () => {
   const { id } = useParams();
   console.log(id);
-  const { friends, loading, addToTimeline  } =
-    useContext(FriendsContext);
+  const { friends, loading, addToTimeline } = useContext(FriendsContext);
 
   const expectedFriend = friends.find((friend) => friend.id == id);
 
@@ -24,9 +23,9 @@ const FriendDetails = () => {
       <SyncLoader color="green" size={28} speedMultiplier={0} />
     </div>
   ) : (
-    <div className="max-w-5xl mx-auto py-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div className=" px-2  max-w-5xl mx-auto py-8 grid grid-cols-1 md:grid-cols-3 md:gap-6">
       {/* left column */}
-      <div className="col-span-1   text-center space-y-4">
+      <div className="col-span-1   text-center space-y-4 mb-6 md:mb-0">
         <div className=" border border-gray-200 rounded-lg p-4 space-y-2">
           <img
             src={expectedFriend.picture}
@@ -95,11 +94,17 @@ const FriendDetails = () => {
         <div className="border border-gray-200 rounded-lg p-4">
           <h1 className="text-xl font-bold pb-2">Quick Check-In</h1>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
-            <button className="btn p-10 flex flex-col gap-2" onClick={()=>handleCheckIn('Call' , callIcon)}>
+            <button
+              className="btn p-10 flex flex-col gap-2"
+              onClick={() => handleCheckIn("Call", callIcon)}
+            >
               <img src={callIcon} alt="Call" className="w-6 h-6 mx-auto" />
               Call
             </button>
-            <button className="btn p-10 flex flex-col gap-2" onClickCapture={()=>handleCheckIn("Text", textIcon)}>
+            <button
+              className="btn p-10 flex flex-col gap-2"
+              onClickCapture={() => handleCheckIn("Text", textIcon)}
+            >
               <img src={textIcon} alt="Text" className="w-6 h-6 mx-auto" />
               Text
             </button>

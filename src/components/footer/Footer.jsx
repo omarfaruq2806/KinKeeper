@@ -28,7 +28,7 @@ const Footer = () => {
             </a>
           </div>
         </div>
-        <div className="text-gray-400 flex items-center justify-between border-t border-gray-600 pt-5">
+        <div className="text-gray-400 flex flex-col md:flex-row items-center justify-between border-t border-gray-600 pt-5">
           <div>
             <p>© 2026 KeenKeeper. All rights reserved.</p>
           </div>

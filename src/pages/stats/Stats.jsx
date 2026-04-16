@@ -19,7 +19,7 @@ const totalCount = call + text + video;
   ];
   return (
     <div className="max-w-5xl mx-auto py-8">
-      <h1 className="text-4xl  font-bold text-[#244D3F] mb-6">
+      <h1 className="mx-2 text-2xl md:text-4xl  font-bold text-[#244D3F] mb-6">
         Friendship Analytics
       </h1>
       {totalCount === 0 ? (
@@ -27,7 +27,7 @@ const totalCount = call + text + video;
           <p className="text-gray-500">No interactions yet. Start connecting!</p>
         </div>
       ) : (
-        <div className="border border-gray-200 shadow-sm rounded-2xl p-6">
+        <div className="mx-2  border border-gray-200 shadow-sm rounded-2xl p-5">
           <p className="text-[#244D3F] font-semibold text-lg">
             By Interaction Type{" "}
           </p>

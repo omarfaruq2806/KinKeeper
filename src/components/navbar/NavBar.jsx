@@ -7,7 +7,7 @@ import { LuChartSpline } from "react-icons/lu";
 const NavBar = () => {
   return (
     <div className="shadow-sm">
-      <div className="navbar max-w-7xl mx-auto">
+      <div className="navbar flex-col md:flex-row max-w-7xl mx-auto ">
         <div className="flex-1">
           <img src={logo} alt="KinKeeper" />
         </div>
@@ -16,7 +16,7 @@ const NavBar = () => {
             <NavLink
               to="/"
               className={({ isActive }) =>
-                `px-4 py-2 flex items-center gap-2 ${isActive ? " bg-[#244D3F] text-white rounded-md" : "text-[#244D3F]"}`
+                `px-2 py-1 md:px-4 md:py-2 flex items-center gap-2 ${isActive ? " bg-[#244D3F] text-white rounded-md" : "text-[#244D3F]"}`
               }
             >
               <IoHomeOutline />
@@ -25,7 +25,7 @@ const NavBar = () => {
             <NavLink
               to="/timeline"
               className={({ isActive }) =>
-                `px-4 py-2 flex items-center gap-2 ${isActive ? " bg-[#244D3F] text-white rounded-md" : "text-[#244D3F]"}`
+                `px-2 py-1 md:px-4 md:py-2 flex items-center gap-2 ${isActive ? " bg-[#244D3F] text-white rounded-md" : "text-[#244D3F]"}`
               }
             >
               <IoTimeOutline />
@@ -34,7 +34,7 @@ const NavBar = () => {
             <NavLink
               to="/stats"
               className={({ isActive }) =>
-                `px-4 py-2 flex items-center gap-2 ${isActive ? " bg-[#244D3F] text-white rounded-md" : "text-[#244D3F]"}`
+                `px-2 py-1 md:px-4 md:py-2 flex items-center gap-2 ${isActive ? " bg-[#244D3F] text-white rounded-md" : "text-[#244D3F]"}`
               }
             >
               <LuChartSpline />

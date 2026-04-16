@@ -7,7 +7,7 @@ import { SyncLoader } from "react-spinners";
 const AllFriend = () => {
   const { friends, loading } = useContext(FriendsContext);
   return (
-    <div className="max-w-5xl mx-auto py-6">
+    <div className="px-2 max-w-5xl mx-auto py-6">
       <h1 className="text-2xl font-bold text-[#244D3F] py-6">Your Friends</h1>
       {loading ? (
         <div className="flex justify-center my-12">

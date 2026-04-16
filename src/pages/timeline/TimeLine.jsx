@@ -8,13 +8,13 @@ const TimeLine = () => {
 
   return (
     <div className="max-w-5xl mx-auto">
-      <h1 className="text-4xl font-bold text-[#244D3F] my-6">Timeline</h1>
+      <h1 className="text-4xl font-bold text-[#244D3F] my-6 mx-2 ">Timeline</h1>
       {timeLine.length === 0 ? (
         <div className="flex justify-center my-12">
           <p className="text-gray-500">No timeline entries yet.</p>
         </div>
       ) : (
-        <div className="grid gap-4 mb-7">
+        <div className="grid gap-4 mb-7 px-2 md:px-0">
           {timeLine.map((entry, ind) => {
             return loading ? (
               <div className="flex justify-center my-12">
@@ -23,7 +23,7 @@ const TimeLine = () => {
             ) : (
               <div
                 key={ind}
-                className="flex gap-4 p-5 border border-gray-200 rounded-lg shadow-sm "
+                className="flex items-center gap-4 p-5 mx-2 border border-gray-200 rounded-lg shadow-sm "
               >
                 <div>
                   <img src={entry.icon} alt={entry.title} />
