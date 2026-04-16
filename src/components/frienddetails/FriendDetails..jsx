@@ -5,18 +5,19 @@ import callIcon from "../../assets/call.png";
 import textIcon from "../../assets/text.png";
 import videoIcon from "../../assets/video.png";
 import { SyncLoader } from "react-spinners";
+import { toast } from "react-toastify";
 
 const FriendDetails = () => {
   const { id } = useParams();
   console.log(id);
-  const { friends, loading, addToTimeline ,timeLine } =
+  const { friends, loading, addToTimeline  } =
     useContext(FriendsContext);
 
   const expectedFriend = friends.find((friend) => friend.id == id);
 
   const handleCheckIn = (type, img) => {
     addToTimeline(type, expectedFriend.name, img);
-    console.log(timeLine);
+    toast.success(`Checked in with ${expectedFriend.name} via ${type}!`);
   };
   return loading ? (
     <div className="flex justify-center my-12">
