@@ -1,15 +1,27 @@
 import React, { useContext } from "react";
 import { useParams } from "react-router";
 import { FriendsContext } from "../../context/FriendsProvider";
+import callIcon from "../../assets/call.png";
+import textIcon from "../../assets/text.png";
+import videoIcon from "../../assets/video.png";
+import { SyncLoader } from "react-spinners";
 
 const FriendDetails = () => {
   const { id } = useParams();
   console.log(id);
-  const { friends, loading } = useContext(FriendsContext);
+  const { friends, loading, addToTimeline ,timeLine } =
+    useContext(FriendsContext);
 
   const expectedFriend = friends.find((friend) => friend.id == id);
+
+  const handleCheckIn = (type, img) => {
+    addToTimeline(type, expectedFriend.name, img);
+    console.log(timeLine);
+  };
   return loading ? (
-    <p>Loading...</p>
+    <div className="flex justify-center my-12">
+      <SyncLoader color="green" size={28} speedMultiplier={0} />
+    </div>
   ) : (
     <div className="max-w-5xl mx-auto py-8 grid grid-cols-1 md:grid-cols-3 gap-6">
       {/* left column */}
@@ -82,9 +94,21 @@ const FriendDetails = () => {
         <div className="border border-gray-200 rounded-lg p-4">
           <h1 className="text-xl font-bold pb-2">Quick Check-In</h1>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
-            <button className="btn p-7">Call</button>
-            <button className="btn p-7">Text</button>
-            <button className="btn p-7">Video</button>
+            <button className="btn p-10 flex flex-col gap-2" onClick={()=>handleCheckIn('Call' , callIcon)}>
+              <img src={callIcon} alt="Call" className="w-6 h-6 mx-auto" />
+              Call
+            </button>
+            <button className="btn p-10 flex flex-col gap-2" onClickCapture={()=>handleCheckIn("Text", textIcon)}>
+              <img src={textIcon} alt="Text" className="w-6 h-6 mx-auto" />
+              Text
+            </button>
+            <button
+              className="btn p-10 flex flex-col gap-2"
+              onClick={() => handleCheckIn("Video", videoIcon)}
+            >
+              <img src={videoIcon} alt="Video" className="w-6 h-6 mx-auto" />
+              Video
+            </button>
           </div>
         </div>
       </div>
