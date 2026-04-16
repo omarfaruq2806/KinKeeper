@@ -1,11 +1,30 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { FriendsContext } from "../../context/FriendsProvider";
 import { SyncLoader } from "react-spinners";
 import { FaArrowDown } from "react-icons/fa";
 
 const TimeLine = () => {
   const { timeLine, loading } = useContext(FriendsContext);
+  const [filter, setFilter] = useState("All");
   console.log(timeLine);
+
+  const filterbyType = (type) => {
+    if (type === "All") {
+      return timeLine;
+    } else if (type === "call") {
+      const filteredCalls = timeLine.filter((entry) => entry.type === "Call");
+      console.log(filteredCalls);
+      return filteredCalls;
+    } else if (type === "text") {
+      const filteredTexts = timeLine.filter((entry) => entry.type === "text");
+      console.log(filteredTexts);
+      return filteredTexts;
+    } else if (type === "video") {
+      const filteredVideos = timeLine.filter((entry) => entry.type === "video");
+      console.log(filteredVideos);
+      return filteredVideos;
+    }
+  };
 
   return (
     <div className="max-w-5xl mx-auto">
@@ -17,24 +36,29 @@ const TimeLine = () => {
       ) : (
         <div className="grid gap-4 mb-7 px-2 md:px-0">
           <div className="dropdown">
-            <div tabIndex={0} role="button" className="btn m-1 w-50 flex justify-between">
-              <p>Filter TimeLine</p><FaArrowDown />
+            <div
+              tabIndex={0}
+              role="button"
+              className="btn m-1 w-50 flex justify-between"
+            >
+              <p>Filter TimeLine</p>
+              <FaArrowDown />
             </div>
             <ul
               tabIndex="-1"
               className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm"
             >
               <li>
-                <a>Filter by Call</a>
+                <a onClick={() => filterbyType("call")}>Filter by Call</a>
               </li>
               <li>
-                <a>Filter by Text</a>
+                <a onClick={() => filterbyType("text")}>Filter by Text</a>
               </li>
               <li>
-                <a>Filter by Video</a>
+                <a onClick={() => filterbyType("video")}>Filter by Video</a>
               </li>
               <li>
-                <a>All</a>
+                <a onClick={() => filterbyType("All")}>All</a>
               </li>
             </ul>
           </div>
