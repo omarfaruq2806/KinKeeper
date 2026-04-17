@@ -85,7 +85,7 @@ const FriendDetails = () => {
           <div>
             <h1 className="text-xl font-bold pb-2">Relationship Goal</h1>
             <p>
-              Connect every <span>30 days</span>
+              Connect every <span>{expectedFriend.goal}</span> days
             </p>
           </div>
           <button className="btn">Edit</button>
